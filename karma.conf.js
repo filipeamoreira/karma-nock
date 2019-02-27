@@ -5,6 +5,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
+      'node_modules/jasmine-promises/dist/jasmine-promises.js',
       { pattern: 'spec/*.js', watched: false },
     ],
 
