@@ -11,20 +11,31 @@ Polly.register(RESTPersister);
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
 
-describe('nock', () => {
+describe('pollyjs', () => {
   let context = setupPolly({
-    loging: true,
-    recordIfMissing: false,
+    logging: true,
+
+    // If a request's recording is not found, pass-through to
+    // the server and record the response
+    recordIfMissing: true,
     recordFailedRequests: true,
-    mode: 'record',
+
+    // "record" mode only records requests, but doesn't replay them
+    // mode: 'record',
+
+    // Default mode, can be omitted
+    mode: 'replay',
+
+    adapters: ['fetch'],
+
     persister: 'rest',
     persisterOptions: {
       rest: {
-        host: 'http://localhost.com:3000',
-      } 
+        // Default host, can be omitted
+        host: 'http://localhost:3000',
+      }
     },
   });
-  console.log(context.polly);
 
   it('is setup correctly', async (done) => {
     expect(true).toBe(true);
@@ -50,4 +61,3 @@ describe('nock', () => {
       });
   });
 });
-

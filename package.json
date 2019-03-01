@@ -7,6 +7,8 @@
     "karma": "NODE_ENV=development ./node_modules/karma/bin/karma start --browsers Chrome",
     "jsdom": "NODE_ENV=development ./node_modules/karma/bin/karma start --browsers jsdom",
     "jasmine": "NODE_ENV=development npx jasmine spec/*",
+    "polly": "polly listen --recordings-dir=__recordings__",
+    "test:karma": "start-server-and-test polly http://localhost:3000 karma",
     "build": "webpack --config webpack.config.js"
   },
   "author": "",
@@ -31,6 +33,7 @@
     "request-promise": "^4.2.4",
     "request-promise-native": "^1.0.7",
     "setup-polly-jest": "^0.5.2",
+    "start-server-and-test": "^1.7.11",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   },
