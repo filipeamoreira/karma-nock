@@ -5,7 +5,6 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
-      'node_modules/jasmine-promises/dist/jasmine-promises.js',
       { pattern: 'spec/*.js', watched: false },
     ],
 
@@ -21,9 +20,9 @@ module.exports = function(config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_DEBUG,
-    autoWatch: false,
+    autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: true,
+    singleRun: false,
     concurrency: Infinity,
   });
 };
