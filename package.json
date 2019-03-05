@@ -28,19 +28,14 @@
     "karma-jsdom-launcher": "^7.0.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-webpack": "^3.0.5",
-    "nock": "^10.0.6",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "request-promise-native": "^1.0.7",
     "setup-polly-jest": "^0.5.2",
     "start-server-and-test": "^1.7.11",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
-    "es6-promise": "^4.2.6",
-    "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.17.11",
-    "whatwg-fetch": "^3.0.0"
+    "lodash": "^4.17.11"
   }
 }

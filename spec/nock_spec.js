@@ -1,5 +1,4 @@
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
+import request from 'request-promise';
 
 const { Polly } = require('@pollyjs/core');
 const RESTPersister = require('@pollyjs/persister-rest');
@@ -40,13 +39,20 @@ describe('pollyjs', () => {
   it('is setup correctly', async (done) => {
     expect(true).toBe(true);
 
-    return fetch('https://my-json-server.typicode.com/typicode/demo/posts', {
+    const options = {
+      uri: 'https://my-json-server.typicode.com/typicode/demo/posts',
       method: 'GET',
-      credentials: 'include'
-    })
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      }
+    };
+
+    return request(options)
       .then((response) => {
         console.log('Inside first then function');
-        return response.json();
+        console.dir(response);
+        return JSON.parse(response);
       })
       .then((posts) => {
         console.log('Inside second then function');
